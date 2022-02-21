@@ -1,0 +1,148 @@
+{% extends 'index.html' %}
+
+{% block scripts %}
+<script>
+    function sendRequestUserOk(username, clas, move_list) {
+        if (!doneRequests) return notDoneWithRequests();
+        doneRequests = false;
+        $('#fourth-user').html(`Please wait while we're loading the data for username: ${username}, game class: ${clas}${(moves.innerText=="Moves" ? "": `, moves played: ${moves.innerText}`)}`);
+        currData[0] = username; currData[3] = clas;
+        $.ajax({
+            url: "{% url 'user_ok' %}",
+            method: 'GET',
+            data: {'username': username, 'class': clas, 'moves_list':move_list},
+            success: function(response) {
+                fourthUserShow(response['user_data']);
+                fourthRatingShow(response['rating_data'])
+            },
+            error: function (response) {
+                alert("We are sorry. Please check the username again or your data is not yet with us and will be available soon");
+                // collecting data so that later on we can add it
+                doneRequests = true;
+                $.ajax({
+                    url: "{% url 'add_user' %}",
+                    method: 'POST',
+                    data: {'username': username, 'csrfmiddlewaretoken': '{{ csrf_token }}'}
+                })
+                // finally display my data
+                sendRequestUserOk('bhavya1238955', gameClassSel.value, '[]');
+                document.getElementById('input-name').value = 'bhavya1238955';
+            },
+        })
+    }
+
+    $('#user-ok').click(function() {
+        sendRequestUserOk(userBox.value, gameClassSel.value, JSON.stringify(movePlayedNames));
+    });
+
+    function sendRequestRatingOk(rangel, ranger, clas, move_list) {
+        if (!doneRequests) return notDoneWithRequests();
+        doneRequests = false;
+        $('#fourth-rating').html(`Please wait while we're loading the data for rating range: ${rangel}-${ranger}, game class: ${clas}${(moves.innerText=="Moves" ? "": `, moves played: ${moves.innerText}`)}`);
+        currData[1] = rangel; currData[2] = ranger; currData[3] = clas;
+        $.ajax({
+            url: "{% url 'rating_ok' %}",
+            method: 'GET',
+            data: {'rangel': rangel, 'ranger': ranger, 'class': clas, 'moves_list': move_list},
+            success: function(response) {
+                fourthUserShow(response['user_data'])
+                fourthRatingShow(response['rating_data']);
+            },
+            error: function(response) {
+                alert('something went wrong');
+            }
+        })
+    }
+    doneRequests = true;
+    sendRequestRatingOk('1000', '1300', 'rapid', '[]');
+    $('#fourth-user').html(`Please wait while we're loading the data for username: bhavya12328955, game class: rapid ${(moves.innerText=="Moves" ? "": `, moves played: ${moves.innerText}`)}`);
+
+    $('#rating-ok').click(function() {
+        rangeVal = range.value;
+        rangeLenVal = rangeLen.value;
+        let idx = rangeVal.indexOf('-');
+        rangel = rangeVal.substr(0, idx);
+        ranger = rangeVal.slice(idx+1, rangeVal.length);
+        sendRequestRatingOk(rangel, ranger, gameClassSel.value, JSON.stringify(movePlayedNames));
+    })
+
+    $('#color').change(function() {
+        if (!doneRequests) {
+            this.value = ((this.value=='white')? 'black': 'white');
+            return notDoneWithRequests();
+        }
+        doneRequests = false;
+        $.ajax({
+            url: "{% url 'change_color' %}",
+            method: 'GET',
+            data: {},
+            success: fourthUserShow,
+            error: function (response) {
+                alert('something went wrong');
+            }
+        })
+    })
+
+    function sendRequestMoveClick(move_name) {
+        $.ajax({
+            url: "{% url 'move_click' %}",
+            method: 'GET',
+            data: {'move_name': move_name},
+            success: function (response) {
+                fourthRatingShow(response['rating_data']);
+                fourthUserShow(response['user_data']);
+            },
+            error: function (response) {
+                alert('something went wrong');
+            }
+        })
+    }
+    $(document).on('click', '.move-btn', function() {
+        let id = $(this).attr('id');
+        moveStrClick(id);
+    });
+
+    // go back button
+    function sendRequestGoBack() {
+        $.ajax({
+            url: "{% url 'go_back' %}",
+            method: 'GET',
+            data: {},
+            success: function (response) {
+                fourthRatingShow(response['rating_data']);
+                fourthUserShow(response['user_data']);
+            },
+            error: function (response) {
+                alert('something went wrong');
+            }
+        })
+    }
+    lBtn.addEventListener('click', ()=> {
+        if (movePlayedNames.length) {
+            if (!doneRequests) return notDoneWithRequests();
+            changeBack(true);
+            sendRequestGoBack();
+        }
+    });
+
+    document.addEventListener('keydown', (e)=>{
+        if (e.key=="ArrowLeft") {
+            if (movePlayedNames.length) {
+                if (!doneRequests) return notDoneWithRequests();
+                changeBack(true);
+                sendRequestGoBack();
+            }
+            lBtn.style.backgroundColor = '#04aa6d';
+            window.setTimeout(function(){lBtn.style.backgroundColor = '#9befc1';},100);
+        }
+    });
+
+    $(document).ajaxStop(function() {
+        doneRequests = true;
+    });
+    function notDoneWithRequests() {
+        alert("Please wait while we're loading the data");
+    }
+
+</script>
+{% endblock %}

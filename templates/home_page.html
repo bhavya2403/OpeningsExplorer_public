@@ -1,0 +1,25 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'home_page.css' %}?{% now "U" %}">
+    <title>Openings Explorer</title>
+</head>
+<body>
+    <div id="navbar">
+        <a id="source-code" href="https://github.com/bhavya2403/OpeningsExplorer_public">Source Code</a>
+        <a id="project-report" href="https://medium.com/@bhavyrajdev0/my-first-major-full-stack-data-science-project-5d7199524b71">Project Report</a>
+        <a id="contact-me" href="mailto:bhavyrajdev0@gmail.com" title="bhavyrajdev0@gmail.com">Contact Me</a>
+    </div>
+    <div id="main-content">
+        <div class="flex-item" id="openexp">Openings Explorer</div>
+        <div class="flex-item" id="para"> Hi, I am Bhavya Rajdev. This is the outcome of my first major full stack data science project. Improve your rating on chess.com by this amazing opening explorer tool</div>
+        <div class="flex-item" id="start-analysis"><button type="submit">Start Analysis</button></div>
+    </div>
+    <script type="text/javascript" src="{% static 'home_page.js' %}?{% now "U" %}"></script>
+    <script type="text/javascript">
+        document.querySelector('button').addEventListener('click', ()=>{window.location.href = "{% url 'analysis' %}"})
+    </script>
+</body>
+</html>

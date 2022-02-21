@@ -1,0 +1,208 @@
+/* designing skeleton */
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #282a35;
+    color: white;
+}
+#main {
+    display: flex;
+    justify-content: center;
+}
+#main-left {
+    margin-right: 1vw;
+    margin-left: 1vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+#main-right {
+    background-color: #96d4d4;
+    /*margin-left: 1vw;*/
+    /*margin-right: 1vw;*/
+}
+#first {
+    border: .5px solid black;
+}
+#second-user {
+    background-color: #6db4b4;
+    border: .5px solid black;
+}
+#second-rating {
+    background-color: #6db4b4;
+    border: .5px solid black;
+}
+#third {
+    border: .5px solid black;
+    background-color: #3fb4b4;
+}
+#fourth-user {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: #47baba;
+    border: .5px solid black;
+}
+#fourth-rating {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: #47baba;
+    border: .5px solid black;
+}
+
+.child-first {
+    float: left;
+    width: 50%;
+    text-align: center;
+    font-size: 3vh;
+}
+.child-first:hover {
+    cursor: pointer;
+}
+.child-second {
+    float: left;
+    height: 70%;
+    background-color: #d9eee1;
+    border-radius: 5px;
+}
+.child-third {
+    float: left;
+    height: 70%;
+}
+
+/* children of second  */
+#input-name {
+    width: 30%;
+    margin-left: 4%;
+    margin-right: 2%;
+}
+.ok-btn {
+    width: 10%;
+    background-color: #9befc1;
+}
+#user-ok {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+#rating-ok {
+    margin-left: 3%;
+    margin-right: 6%;
+}
+.ok-btn:hover {
+    background-color: #04aa6d;
+    cursor: pointer;
+}
+#game-type-1 {
+    width: 20%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+#color {
+    width: 20%;
+    margin-left: 2%;
+    margin-right: 4%;
+}
+#range-len {
+    width: 20%;
+    margin-left: 6%;
+    margin-right: 3%;
+}
+#range {
+    width: 20%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+#game-type {
+    width: 20%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+/* children of third */
+#moves {
+    height: 100%;
+    width: 70%;
+    margin-right: 2%;
+    border-right: .5px solid black;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.third-btn {
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #9befc1;
+    border-radius: 5px;
+}
+.third-btn:hover {
+    background-color: #04aa6d;
+    cursor: pointer;
+}
+#l-btn {width: 8%;}
+#l-img {
+    width: 100%;
+}
+#flip-btn {width: 8%;}
+#flip-img {
+    width: 100%;
+    height :100%;
+}
+
+/* children of fourth */
+.move {
+    height: 30px;
+    width: 100%;
+}
+.move-content {
+    float: left;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.percent-bar {
+    width: 70%;
+    border: .5px solid black;
+}
+.move-btn {
+    background: none;
+    border:none;
+    margin-top: 6.5px;
+    height: 18.4px;
+    width: 10%;
+    color: white;
+}
+.move-btn:hover {
+    color: #9befc1;
+    cursor: pointer;
+}
+.total-games {
+    width: 10%;
+    text-align: center;
+}
+.percent-bar-content {
+    float: left;
+}
+.win-per {
+    background-color: #7ce4aa;
+}
+.draw-per {
+    background-color: #29a86b;
+}
+.lose-per {
+    background-color: grey;
+}
+
+/* designing and initializing chess board */
+.square {
+    height: 12.5%;
+    width: 12.5%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+#a1,#h1 {background-image: url('Images/wr.png');}
+#b1,#g1 {background-image: url('Images/wn.png');}
+#c1,#f1 {background-image: url('Images/wb.png');}
+#d1 {background-image: url('Images/wq.png');}
+#e1 {background-image: url('Images/wk.png');}
+#a2,#b2,#c2,#d2,#e2,#f2,#g2,#h2 {background-image: url('Images/wp.png');}
+#a8,#h8 {background-image: url('Images/br.png');}
+#b8,#g8 {background-image: url('Images/bn.png');}
+#c8,#f8 {background-image: url('Images/bb.png');}
+#d8 {background-image: url('Images/bq.png');}
+#e8 {background-image: url('Images/bk.png');}
+#a7,#b7,#c7,#d7,#e7,#f7,#g7,#h7 {background-image: url('Images/bp.png');}

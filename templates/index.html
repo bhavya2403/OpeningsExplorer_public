@@ -1,0 +1,134 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Openings Explorer</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css?{% now "U" %}">
+</head>
+<body>
+    <div id="main">
+        <div id="main-left">
+            <div class="square" id="a1" onclick="moveClicked(this)"></div>
+            <div class="square" id="a2" onclick="moveClicked(this)"></div>
+            <div class="square" id="a3" onclick="moveClicked(this)"></div>
+            <div class="square" id="a4" onclick="moveClicked(this)"></div>
+            <div class="square" id="a5" onclick="moveClicked(this)"></div>
+            <div class="square" id="a6" onclick="moveClicked(this)"></div>
+            <div class="square" id="a7" onclick="moveClicked(this)"></div>
+            <div class="square" id="a8" onclick="moveClicked(this)"></div>
+            <div class="square" id="b1" onclick="moveClicked(this)"></div>
+            <div class="square" id="b2" onclick="moveClicked(this)"></div>
+            <div class="square" id="b3" onclick="moveClicked(this)"></div>
+            <div class="square" id="b4" onclick="moveClicked(this)"></div>
+            <div class="square" id="b5" onclick="moveClicked(this)"></div>
+            <div class="square" id="b6" onclick="moveClicked(this)"></div>
+            <div class="square" id="b7" onclick="moveClicked(this)"></div>
+            <div class="square" id="b8" onclick="moveClicked(this)"></div>
+            <div class="square" id="c1" onclick="moveClicked(this)"></div>
+            <div class="square" id="c2" onclick="moveClicked(this)"></div>
+            <div class="square" id="c3" onclick="moveClicked(this)"></div>
+            <div class="square" id="c4" onclick="moveClicked(this)"></div>
+            <div class="square" id="c5" onclick="moveClicked(this)"></div>
+            <div class="square" id="c6" onclick="moveClicked(this)"></div>
+            <div class="square" id="c7" onclick="moveClicked(this)"></div>
+            <div class="square" id="c8" onclick="moveClicked(this)"></div>
+            <div class="square" id="d1" onclick="moveClicked(this)"></div>
+            <div class="square" id="d2" onclick="moveClicked(this)"></div>
+            <div class="square" id="d3" onclick="moveClicked(this)"></div>
+            <div class="square" id="d4" onclick="moveClicked(this)"></div>
+            <div class="square" id="d5" onclick="moveClicked(this)"></div>
+            <div class="square" id="d6" onclick="moveClicked(this)"></div>
+            <div class="square" id="d7" onclick="moveClicked(this)"></div>
+            <div class="square" id="d8" onclick="moveClicked(this)"></div>
+            <div class="square" id="e1" onclick="moveClicked(this)"></div>
+            <div class="square" id="e2" onclick="moveClicked(this)"></div>
+            <div class="square" id="e3" onclick="moveClicked(this)"></div>
+            <div class="square" id="e4" onclick="moveClicked(this)"></div>
+            <div class="square" id="e5" onclick="moveClicked(this)"></div>
+            <div class="square" id="e6" onclick="moveClicked(this)"></div>
+            <div class="square" id="e7" onclick="moveClicked(this)"></div>
+            <div class="square" id="e8" onclick="moveClicked(this)"></div>
+            <div class="square" id="f1" onclick="moveClicked(this)"></div>
+            <div class="square" id="f2" onclick="moveClicked(this)"></div>
+            <div class="square" id="f3" onclick="moveClicked(this)"></div>
+            <div class="square" id="f4" onclick="moveClicked(this)"></div>
+            <div class="square" id="f5" onclick="moveClicked(this)"></div>
+            <div class="square" id="f6" onclick="moveClicked(this)"></div>
+            <div class="square" id="f7" onclick="moveClicked(this)"></div>
+            <div class="square" id="f8" onclick="moveClicked(this)"></div>
+            <div class="square" id="g1" onclick="moveClicked(this)"></div>
+            <div class="square" id="g2" onclick="moveClicked(this)"></div>
+            <div class="square" id="g3" onclick="moveClicked(this)"></div>
+            <div class="square" id="g4" onclick="moveClicked(this)"></div>
+            <div class="square" id="g5" onclick="moveClicked(this)"></div>
+            <div class="square" id="g6" onclick="moveClicked(this)"></div>
+            <div class="square" id="g7" onclick="moveClicked(this)"></div>
+            <div class="square" id="g8" onclick="moveClicked(this)"></div>
+            <div class="square" id="h1" onclick="moveClicked(this)"></div>
+            <div class="square" id="h2" onclick="moveClicked(this)"></div>
+            <div class="square" id="h3" onclick="moveClicked(this)"></div>
+            <div class="square" id="h4" onclick="moveClicked(this)"></div>
+            <div class="square" id="h5" onclick="moveClicked(this)"></div>
+            <div class="square" id="h6" onclick="moveClicked(this)"></div>
+            <div class="square" id="h7" onclick="moveClicked(this)"></div>
+            <div class="square" id="h8" onclick="moveClicked(this)"></div>
+        </div>
+        <div id="main-right">
+            <div id="first">
+                <div class='child-first' id="rating">Rating Data</div>
+                <div class='child-first' id="user">User Data</div>
+            </div>
+            <div id="second-rating">
+                <select class="child-second" name="range-len" id="range-len">
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="300" selected="selected">300</option>
+                </select>
+                <select class="child-second" name="range" id="range"></select>
+                <select class="child-second" name="game-type" id="game-type">
+                    <option value="rapid" selected="selected">Rapid</option>
+                    <option value="blitz">Blitz</option>
+                    <option value="bullet">Bullet</option>
+                </select>
+                <button class="child-second ok-btn" type="submit" id="rating-ok">Ok</button>
+            </div>
+            <div id="second-user">
+                <input class="child-second" type="text" placeholder="Username" id="input-name" value="bhavya1238955">
+                <select class="child-second" name="game-type-1" id="game-type-1">
+                    <option value="rapid" selected="selected">Rapid</option>
+                    <option value="blitz">Blitz</option>
+                    <option value="bullet">Bullet</option>
+                </select>
+                <button class="child-second ok-btn" type="submit" id="user-ok">Ok</button>
+                <select class="child-second" name="color" id="color">
+                    <option value="white">White</option>
+                    <option value="black">Black</option>
+                </select>
+            </div>
+            <div id="third">
+                <div class="child-third" id="moves">Moves</div>
+                <button class="child-third third-btn" type="submit" id="l-btn">
+                    <img src="../static/Images/leftarrow.png" id="l-img" alt="Go back one move">
+                </button>
+                <button class="child-third third-btn" type="submit" id="flip-btn">
+                    <img src="../static/Images/flipicon.png" id="flip-img" alt="Flip board">
+                </button>
+            </div>
+            <div id="fourth-rating"></div>
+            <div id="fourth-user"></div>
+        </div>
+    </div>
+    <script src="../static/jquery_lib.js"></script>
+    <script type="text/javascript" src="../static/declarations.js?{% now "U" %}"></script>
+    <script type="text/javascript" src="../static/skeleton.js?{% now "U" %}"></script>
+    <script type="text/javascript" src="../static/main_left.js?{% now "U" %}"></script>
+    <script type="text/javascript" src="../static/main_right.js?{% now "U" %}"></script>
+    <script type="text/javascript" src="../static/get_moves_list.js?{% now "U" %}"></script>
+    <script type="text/javascript" src="../static/moves_handling.js?{% now "U" %}"></script>
+    <script type="text/javascript" src="../static/show_legal_moves.js?{% now "U" %}"></script>
+    {% block scripts %}{% endblock %}
+    <style>
+    </style>
+</body>
+</html>
