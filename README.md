@@ -1,6 +1,5 @@
-I've set the project such that you can easily open the website on local server and start working on it just by cloning the project and installing requirements.txt. There is only one change in this code vs the code running on Azure is the database connection which in this case it's
-CSV file of 5000 games vs 1M games on the original website.
+An explorer for chess openings with millions of games in the database, updating on a daily basis, where users can analyse their games, compare their chess game scores on the chess board to those of players with different rating ranges.
 
-Website is hosted on: https://openingexplorer.azurewebsites.net/
+Website is hosted on: https://openingexplorer.azurewebsites.net/ (Currently down due to some error on cloud. You can still see the demo on: https://www.youtube.com/watch?v=63ZFRM-J98U)
 Read project report on: https://medium.com/@bhavyrajdev0/my-first-major-full-stack-data-science-project-5d7199524b71
 Contact me: bhavyrajdev0@gmail.com
